@@ -1,0 +1,35 @@
+[project]
+name = {{cookiecutter.project_name}} # noqa
+version = {{cookiecutter.version}} # noqa
+description = "{{cookiecutter.project_short_description}}"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "pre-commit",
+    "ruff",
+    "python-lsp-server[all]",
+    "python-lsp-black",
+    "python-lsp-isort",
+    "python-lsp-ruff",
+]
+
+[tool.ruff]
+line-length = 88
+indent-width = 4
+
+[tool.ruff.lint]
+select = [
+    "E",
+    "F",
+    "I",
+    "N",
+    "B",
+    "C",
+    # "D", # Documentation
+    # "T", # Prints found
+    "R",
+    "W",
+]
