@@ -10,10 +10,15 @@ dependencies = []
 dev = [
     "pre-commit",
     "ruff",
+    "rope",
     "python-lsp-server[all]",
     "python-lsp-black",
     "python-lsp-isort",
     "python-lsp-ruff",
+    "pylsp-memestra",
+    "pylsp-mypy",
+    "pylsp-rope",
+    "pytest",
 ]
 
 [tool.ruff]
