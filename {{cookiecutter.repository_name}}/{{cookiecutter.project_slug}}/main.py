@@ -3,7 +3,7 @@
 from fastapi import FastAPI
 from prometheus_client import make_asgi_app
 from starlette.middleware.wsgi import WSGIMiddleware
-from .routes import log_routes, metrics_routes
+from {{cookiecutter.project_slug}}.routes import log_routes, metrics_routes
 
 # Initialize FastAPI app
 app = FastAPI()
