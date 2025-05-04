@@ -1,11 +1,17 @@
 """Python template for new projects."""
 
+from fastapi import FastAPI
+from prometheus_client import make_asgi_app
+from starlette.middleware.wsgi import WSGIMiddleware
+from {{cookiecutter.project_slug}}.routes import log_routes, metrics_routes
 
-def main():
-    """Execute the main script."""
-    print("Hello from python-template!")
+# Initialize FastAPI app
+app = FastAPI()
 
+# Include routes
+app.include_router(log_routes.router)
+app.include_router(metrics_routes.router)
 
-if __name__ == "__main__":
-    """Entry point of the script."""
-    main()
+# Prometheus metrics endpoint
+prometheus_app = make_asgi_app()
+app.mount("/metrics", WSGIMiddleware(prometheus_app))
